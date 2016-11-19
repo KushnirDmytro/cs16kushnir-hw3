@@ -19,7 +19,7 @@ public class FilterDecorator extends SmartArrayDecorator{
     public Object[] toArray() {
         ArrayList<Object> rawArray = new ArrayList<Object>();
         for (Object element : this.smartArray.toArray()){
-            if (!this.predicate.test(element)){
+            if (this.predicate.test(element)){
                 rawArray.add(element);
             }
         }
