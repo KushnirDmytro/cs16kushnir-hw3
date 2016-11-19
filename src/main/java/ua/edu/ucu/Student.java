@@ -36,4 +36,9 @@ class Student {
         return "Student{name=" + name + ", surname=" + surname + ", " + "GPA=" + GPA + ", year=" + year + '}';
     }
 
+    @Override
+    public boolean equals(Object other_student){
+        return  (this.name.equals(((Student)other_student).getName()) &&
+                (this.surname.equals(((Student)other_student).getSurname())));
+    }
 }
