@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 // Sorts elements using MyComparator to compare them
-public class SortDecorator extends SmartArrayDecorator{
+public class SortDecorator extends SmartArrayDecorator {
     private MyComparator comparator;
 
     public SortDecorator(SmartArray smartArray, MyComparator comparator) {

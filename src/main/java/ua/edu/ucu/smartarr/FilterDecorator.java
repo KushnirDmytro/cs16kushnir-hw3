@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 // Tests every element and removes it if it doesn't satisfy MyPredicate
-public class FilterDecorator extends SmartArrayDecorator{
+public class FilterDecorator extends SmartArrayDecorator {
     MyPredicate predicate;
 
     public FilterDecorator(SmartArray smartArray, MyPredicate predicate) {
@@ -18,8 +18,8 @@ public class FilterDecorator extends SmartArrayDecorator{
     @Override
     public Object[] toArray() {
         ArrayList<Object> rawArray = new ArrayList<Object>();
-        for (Object element : this.smartArray.toArray()){
-            if (this.predicate.test(element)){
+        for (Object element : this.smartArray.toArray()) {
+            if (this.predicate.test(element)) {
                 rawArray.add(element);
             }
         }

@@ -5,7 +5,7 @@ import ua.edu.ucu.functions.MyFunction;
 import java.util.ArrayList;
 
 // Map every element to another object using MyFunction
-public class MapDecorator extends SmartArrayDecorator{
+public class MapDecorator extends SmartArrayDecorator {
     private MyFunction function;
 
     public MapDecorator(SmartArray smartArray, MyFunction function) {
@@ -16,7 +16,7 @@ public class MapDecorator extends SmartArrayDecorator{
     @Override
     public Object[] toArray() {
         ArrayList<Object> rawArray = new ArrayList<>();
-        for (Object element : this.smartArray.toArray()){
+        for (Object element : this.smartArray.toArray()) {
             rawArray.add(this.function.apply(element));
         }
         return rawArray.toArray();
