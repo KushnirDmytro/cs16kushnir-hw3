@@ -14,9 +14,9 @@ public class DistinctDecorator extends SmartArrayDecorator{
     public Object[] toArray() {
         ArrayList <Object> rawArray = new ArrayList<Object>(Arrays.asList(this.smartArray.toArray()));
         int indx = 0;
-        for (Object elem : rawArray){
-            while (rawArray.lastIndexOf(elem) != indx){
-                rawArray.remove(rawArray.lastIndexOf(elem));
+        for (int i =0; i<rawArray.size(); i++){
+            while (rawArray.lastIndexOf(rawArray.get(i)) != indx){
+                rawArray.remove(rawArray.lastIndexOf(rawArray.get(i)));
             }
             indx++;
         }

@@ -11,6 +11,7 @@ public class SortDecorator extends SmartArrayDecorator{
 
     public SortDecorator(SmartArray smartArray, MyComparator comparator) {
         super(smartArray);
+        this.comparator = comparator;
     }
 
     @Override

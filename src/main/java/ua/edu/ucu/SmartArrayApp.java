@@ -51,10 +51,36 @@ public class SmartArrayApp {
 
     public static String[]
             findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
+        MyPredicate mp = new MyPredicate() {
+            @Override
+            public boolean test(Object t) {
+                return ( ( ((Student)t).getYear() == 2) &&
+                        ((Student)t).getGPA()>=4.0 );
+            }
+        };
+
+        MyComparator cmp = new MyComparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return ((Student) o1).getSurname().compareTo(((Student) o2).getSurname());
+            }
+        };
+
+        SmartArray studentSmartArray = new BaseArray(students);
+
+        studentSmartArray = new SortDecorator(
+                new DistinctDecorator(
+                        new FilterDecorator(studentSmartArray, mp)
+                ), cmp);
+
+
 
         // Hint: to convert Object[] to String[] - use the following code
-        //Object[] result = studentSmartArray.toArray();
-        //return Arrays.copyOf(result, result.length, String[].class);
-        return null;
+        Object[] result = studentSmartArray.toArray();
+        String[] resultNames = new String[result.length];
+        for (int i = 0; i < result.length; i++){
+            resultNames[i] = ((Student) result[i]).getSurname() + " " + ((Student) result[i]).getName();
+        }
+        return resultNames;
     }
 }
